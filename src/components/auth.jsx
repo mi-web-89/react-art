@@ -25,17 +25,20 @@ export default function AuthInputs() {
     <div id="auth-inputs">
       <form className="controls">
         <p>
-          <label>Email</label>
+          <label htmlFor='email' className={`${emailNotValid ? 'invalid' : ''}`}>Email</label>
           <input
             type="email"
-            className={emailNotValid ? 'invalid' : undefined}
+            id='email'
+            // use '&&' tidak cocok untuk jsx classname 
+            className={emailNotValid ? 'invalid' : undefined} 
             onChange={(event) => handleInputChange('email', event.target.value)}
           />
         </p>
         <p>
-          <label>Password</label>
+          <label htmlFor="password" className={`${passwordNotValid ? 'invalid' : ''}`}>Password</label>
           <input
             type="password"
+            id="password"
             className={passwordNotValid ? 'invalid' : undefined}
             onChange={(event) =>
               handleInputChange('password', event.target.value)
